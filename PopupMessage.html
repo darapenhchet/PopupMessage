@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko" xml:lang="ko">
+<head>
+	<title>Popup Message</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Cache-Control" content="No-Cache">
+	<meta http-equiv="Pragma" content="No-Cache">
+</head>
+<body >
+	<button id="btnWarning">Warning</button>
+	<button id="btnSuccess">Success</button>
+	<button id="btnInfo">Info</button>
+	<button id="btnError">Error</button>
+
+	<!-- INITIALIZE PopupMessage -->
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.bpopup.min.js"></script>
+	<script type="text/javascript" src="js/PopupMessage.js"></script>
+	<!-- END PopupMessage -->
+
+	<script type="text/javascript">
+		$(function(){
+			helloWorld = function(){
+				alert("Hello world");
+			}
+			$("#btnWarning").click(function(){
+				PopupMessage.warning('이체파일이 등록되었습니다.<br>' +
+									 '자동이체관리에서 등록된 파일에 대해<br>' +
+									 '자동이체요청을 하세요.');
+				PopupMessage.error('이체파일이 등록되었습니다.<br>',function(){alert("Where are you?");});
+				PopupMessage.info('이체파일이 등록되었습니다.<br>');
+				PopupMessage.success('이체파일이 등록되었습니다.<br>');
+			});
+			$("#btnSuccess").click(function(){
+				PopupMessage.success('이체파일이 등록되었습니다.<br>');
+			});
+			$("#btnInfo").click(function(){
+				PopupMessage.info('이체파일이 등록되었습니다.<br>');
+			});
+			$("#btnError").click(function(){
+				PopupMessage.error('이체파일이 등록되었습니다.<br>',helloWorld);
+			});
+		});
+	</script>
+</body>
+</html>
